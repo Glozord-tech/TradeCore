@@ -1,3 +1,6 @@
 <Solution>
-  <Project Path="src/TradeCore/TradeCore.csproj" />
+  <Project Path="src/TradeAPI/TradeCore.csproj" />
+  <Project Path="src/TradeApplication/TradeApplication.csproj" Id="8fe9b0ff-f6eb-4933-9383-6b071ec62627" />
+  <Project Path="src/TradeDomain/TradeDomain.csproj" Id="a60ca29a-fe18-4499-a03b-461bb254e6cc" />
+  <Project Path="src/TradeInfrastructure/TradeInfrastructure.csproj" Id="d20b8b97-ff77-4b55-80ca-1f70ce1fb386" />
 </Solution>

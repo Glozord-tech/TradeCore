@@ -108,6 +108,10 @@ docker-compose.override.yml
 *.db
 *.sqlite
 *.sqlite3
+# SQLite database
+*.db
+*.db-shm
+*.db-wal
 
 
 # =========================
