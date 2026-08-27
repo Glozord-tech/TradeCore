@@ -16,5 +16,6 @@ namespace TradeApplication.Interfaces
         void Update(Product product);
 
         void Delete(Product product);
+        Task SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }

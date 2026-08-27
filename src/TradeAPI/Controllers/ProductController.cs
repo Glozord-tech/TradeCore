@@ -47,6 +47,33 @@ namespace TradeCore.Controllers
             };
             Product prod = await _services.CreateProduct(product,token);
             return CreatedAtAction(nameof(GetProductById),new { id = product.Id },product);
-        } 
+        }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateProduct(Guid id,ProductDTO dto,CancellationToken token)
+        {
+            var product = new Product
+            {
+                Id = id,
+                Name = dto.Name,
+                Price= dto.Price,
+                Stock= dto.Stock
+            };
+            var updatedprod = await _services.UpdateAsync(id, product, token);
+            if(updatedprod == null)
+            {
+                return NotFound();
+            } 
+            return Ok(updatedprod);
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteProduct(Guid id,CancellationToken token)
+        {
+            var deleted = await _services.DeleteProduct(id, token);
+            if (!deleted)
+            {
+                return NotFound();
+            }
+            return NoContent();
+        }
     }
 }

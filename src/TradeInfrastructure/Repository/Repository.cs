@@ -48,5 +48,9 @@ namespace TradeInfrastructure.Repository
         {
             _context.Products.Remove(product);
         }
+        public async Task SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            await _context.SaveChangesAsync(cancellationToken);
+        }
     }
 }

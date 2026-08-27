@@ -32,7 +32,30 @@ namespace TradeApplication.Services
                 throw new ArgumentException("Stock<0");
             }
             await _repository.AddAsync(product, token);
+            await _repository.SaveChangesAsync(token);
             return product;
         } 
+        public async Task<Product?> UpdateAsync(Guid id,Product product,CancellationToken token)
+        {
+            var existsprod =await _repository.GetProductByIdAsync(id, token);
+            if(existsprod == null)
+            {
+                return null;
+            }
+            existsprod.Name = product.Name;
+            existsprod.Price = product.Price;
+            existsprod.Stock = product.Stock;
+
+            await _repository.SaveChangesAsync(token);
+            return existsprod;
+        }
+        public async Task<bool> DeleteProduct(Guid id,CancellationToken token)
+        {
+            var product = await _repository.GetProductByIdAsync(id, token);
+            if(product == null) {  return false; }
+            _repository.Delete(product);
+            await _repository.SaveChangesAsync(token);
+            return true;
+        }
     }
 }
