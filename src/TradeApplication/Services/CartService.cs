@@ -4,7 +4,7 @@ using System.Text;
 using TradeApplication.Interfaces;
 using TradeDomain.Entities;
 
-namespace TradeApplication.DTOs
+namespace TradeApplication.Services
 {
     public class CartService : ICartService
     {

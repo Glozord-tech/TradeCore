@@ -6,6 +6,6 @@ namespace TradeApplication.DTOs
 {
     public class CartDTO
     {
-        public decimal Price;
+        public decimal Price { get; set; }
     }
 }

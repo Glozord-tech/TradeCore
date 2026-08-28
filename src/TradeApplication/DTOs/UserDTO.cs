@@ -4,8 +4,9 @@ using System.Text;
 
 namespace TradeApplication.DTOs
 {
-    internal class UserDTO
+    public class UserDTO
     {
-
+        public string Name { get; set; }
+        public decimal Balance {  get; set; }
     }
 }
